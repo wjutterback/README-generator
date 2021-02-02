@@ -42,13 +42,32 @@ const questions = [
     message: 'Which license would you like to use?',
     choices: licenseChoices,
   },
+  {
+    type: 'input',
+    name: 'GitHub',
+    message: 'What is your GitHub username?',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your email address?',
+  },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
 // Function call to initialize app
 init();
