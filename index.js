@@ -8,9 +8,14 @@ const licenseChoices = ['MIT', 'GPL-2.0', 'Apache-2.0', 'BSD-3-clause'];
 const questions = [
   {
     type: 'input',
-    name: 'title',
-    message: 'What is your project title?',
+    name: 'name',
+    message: 'What is your full name?',
   },
+  // {
+  //   type: 'input',
+  //   name: 'title',
+  //   message: 'What is your project title?',
+  // },
   // {
   //   type: 'input',
   //   name: 'description',
@@ -62,7 +67,7 @@ function init() {
   inquirer
     .prompt(questions)
     .then((data) => {
-      generate(data.license);
+      generate(data.license, data.name);
     })
     .catch((error) => {
       console.log(error);
