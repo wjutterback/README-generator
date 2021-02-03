@@ -32,12 +32,17 @@ const questions = [
   {
     type: 'input',
     name: 'description',
-    message: 'Please describe your project',
+    message: 'Please describe your project:',
   },
   {
     type: 'input',
     name: 'install',
     message: 'How do you install it?',
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'What usage instructions do you want to provide?',
   },
   {
     type: 'input',

@@ -9,9 +9,10 @@ ${data.description}
 ## Table of Contents
 
 - [Installation](#Installation)
-- [Instructions](#Instructions)
+- [Usage Information](#Usage Information)
 - [Issues](#Issues)
 - [Contribute](#Contribute)
+- [Tests](#Tests)
 - [Questions](#Questions)
 - [License](#License)
 
@@ -19,9 +20,9 @@ ${data.description}
 
 ${data.install}
 
-## Instructions
+## Usage Information
 
-${data.test}
+${data.usage}
 
 ## Issues
 
@@ -31,11 +32,13 @@ ${data.issues}
 
 ${data.contribute}
 
+## Tests
+
+${data.test}
+
 ## Questions?
-If you have additional questions, you can reach me either at the GitHub Profile below:
-[Github Profile](https://github.com/${data.GitHub})
-or by e-mailing:
-${data.email}
+If you have additional questions, you can reach me through GitHub:
+[Github Profile](https://github.com/${data.GitHub}) or by e-mail: ${data.email}
 
 ## License
 
