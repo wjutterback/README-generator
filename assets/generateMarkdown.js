@@ -15,8 +15,8 @@ function renderLicenseSection(data) {
       xhr.onload = function () {
         if (xhr.status === 200) {
           const editedResponse = xhr.responseText
-            .replace(/year/g, year)
-            .replace(/fullname/g, data.name);
+            .replace(/\[year\]/g, year)
+            .replace(/\[fullname\]/g, data.name);
           const jsonParse = JSON.parse(editedResponse);
           resolve(jsonParse);
         } else {
