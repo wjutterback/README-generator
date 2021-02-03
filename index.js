@@ -11,6 +11,11 @@ const questions = [
     name: 'name',
     message: 'What is your full name?',
   },
+  {
+    type: 'input',
+    name: 'filename',
+    message: 'What do you want to name your README file?',
+  },
   // {
   //   type: 'input',
   //   name: 'title',
@@ -60,14 +65,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  console.log('writing file');
+  fs.writeFileSync(`./${fileName}.md`, data);
+}
 
 // TODO: Create a function to initialize app
-function init() {
+async function init() {
   inquirer
     .prompt(questions)
     .then((data) => {
-      generate(data.license, data.name);
+      try {
+        generate(data);
+        // const markdown = generate(data);
+        // writeToFile(data.filename, markdown); can't write to file because markdown is a promise (object);
+      } catch (error) {
+        console.log(error);
+      }
     })
     .catch((error) => {
       console.log(error);
