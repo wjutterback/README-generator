@@ -2,53 +2,48 @@ const template = require('./template');
 const fs = require('fs');
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const xhr = new XMLHttpRequest();
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+//Queries GitHub API and callback passed to generateMarkdown
 function renderLicenseSection(data) {
   const year = new Date().getFullYear();
   const licenseLC = data.license.toLowerCase();
-  return new Promise(function (resolve, reject) {
-    xhr.open('GET', 'https://api.github.com/licenses/' + licenseLC, true);
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        const editedResponse = xhr.responseText
-          .replace(/year/g, year)
-          .replace(/fullname/g, data.name);
-        const jsonParse = JSON.parse(editedResponse);
-        const responseReturn = jsonParse.body;
-        resolve(responseReturn);
-      } else {
-        reject(console.error('reject', xhr.statusText));
-      }
-    };
-    xhr.onerror = function () {
-      console.error(xhr.statusText);
-    };
-    xhr.send();
-  });
-}
-
-// TODO: Create a function to generate markdown for README
-async function generateMarkdown(data) {
-  // renderLicenseBadge(data, name);
-  // renderLicenseLink(data);
-  try {
-    const license = await renderLicenseSection(data);
-    const tempData = template(license, data);
-    // return tempData; can't go up a level because it results in a promise, writing file down here for
-    console.log('writing data');
-    fs.writeFileSync(`./${data.filename}.md`, tempData);
-  } catch (error) {
-    console.log(error);
+  if (data === !null) {
+    return '';
+  } else {
+    return new Promise(function (resolve, reject) {
+      xhr.open('GET', 'https://api.github.com/licenses/' + licenseLC, true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const editedResponse = xhr.responseText
+            .replace(/year/g, year)
+            .replace(/fullname/g, data.name);
+          const jsonParse = JSON.parse(editedResponse);
+          resolve(jsonParse);
+        } else {
+          reject(console.error('reject', xhr.statusText));
+        }
+      };
+      xhr.onerror = function () {
+        console.error(xhr.statusText);
+      };
+      xhr.send();
+    });
   }
+}
+//Awaits response from GitHub API and runs writeToFile with information gathered.
+async function generateMarkdown(data) {
+  const license = await renderLicenseSection(data);
+  const badge = license.spdx_id.replace('-', '%20').replace('-', '--');
+  const licenseBody = license.body;
+  const link = license.html_url;
+  const tempData = template(licenseBody, data, badge, link);
+  console.log('writing data');
+  writeToFile(data.filename, tempData);
+}
+//Generates README.md from information generated from GitHub API/Inquirer prompts
+function writeToFile(fileName, data) {
+  console.log('writing file');
+  fs.writeFileSync(`./${fileName}.md`, data);
 }
 
 module.exports = generateMarkdown;
