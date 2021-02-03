@@ -9,7 +9,7 @@ Following prompts you will be able to automatically generate a README.md
 ## Table of Contents
 
 - [Installation](#Installation)
-- [Usage Information](#Usage Information)
+- [Usage Information](#Usage)
 - [Issues](#Issues)
 - [Contribute](#Contribute)
 - [Tests](#Tests)
