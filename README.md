@@ -32,10 +32,6 @@ Contact me on GitHub or through email
 
 Contact me on GitHub or through email
 
-## Tests
-
-None.
-
 ## Questions?
 If you have additional questions, you can reach me through GitHub:
 [Github Profile](https://github.com/wjutterback) or by e-mail: uwill08@gmail.com

@@ -7,7 +7,7 @@ const xhr = new XMLHttpRequest();
 function renderLicenseSection(data) {
   const year = new Date().getFullYear();
   const licenseLC = data.license.toLowerCase();
-  if (data === !null) {
+  if (data === undefined) {
     return '';
   } else {
     return new Promise(function (resolve, reject) {
@@ -37,12 +37,12 @@ async function generateMarkdown(data) {
   const licenseBody = license.body;
   const link = license.html_url;
   const tempData = template(licenseBody, data, badge, link);
-  console.log('writing data');
+
   writeToFile(data.filename, tempData);
 }
 //Generates README.md from information generated from GitHub API/Inquirer prompts
 function writeToFile(fileName, data) {
-  console.log('writing file');
+  console.log('Writing file now');
   fs.writeFileSync(`./${fileName}.md`, data);
 }
 

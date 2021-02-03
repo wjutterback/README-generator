@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const generate = require('./assets/generateMarkdown'); // generate will run generateMarkdown function
+const generate = require('./assets/generateMarkdown');
 const colorChoices = ['green', 'blue', 'lightblue', 'red', 'orange'];
 const licenseChoices = [
   'MIT',
@@ -85,6 +85,7 @@ const questions = [
 
 // Potentially chain .thens to be able to writeSyncFunction in index.js
 //https://stackoverflow.com/questions/28250680/how-do-i-access-previous-promise-results-in-a-then-chain
+//runs inquirer for user input
 function init() {
   inquirer
     .prompt(questions)
