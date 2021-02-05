@@ -11,12 +11,11 @@ function renderLicenseSection(data) {
     xhr.onload = function () {
       if (xhr.status === 200) {
         const editedResponse = xhr.responseText
-          .replace(/\[year\]/g, year)
-          .replace(/\[yyyy\]/g, year)
-          .replace(/\<year\>/g, year)
-          .replace(/\[fullname\]/g, data.name)
-          .replace(/\[name of copyright owner\]/g, data.name)
-          .replace(/\<name of author\>/g, data.name)
+          .replace(/\[year\]|\[yyyy\]|\<year\>/g, year)
+          .replace(
+            /\[fullname\]|\[name of copyright owner\]|\<name of author\>/g,
+            data.name
+          )
           .replace(
             /\<one line to give the program\'s name and a brief idea of what it does.\>/g,
             `${data.title} ${data.description}`
@@ -42,6 +41,5 @@ async function generateMarkdown(data) {
   const link = license.html_url;
   return template(licenseBody, data, badge, link);
 }
-//Generates README.md from information generated from GitHub API/Inquirer prompts
 
 module.exports = generateMarkdown;

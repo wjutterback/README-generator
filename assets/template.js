@@ -18,9 +18,9 @@ const buildTemplate = (license, data, badge, link) => `
 
 ## Installation
 
-```
+\`\`\`
 ${data.install}
-```
+\`\`\`
 
 ## Usage Information
 
@@ -36,9 +36,9 @@ ${data.contribute}
 
 ## Tests
 
-```
+\`\`\`
 ${data.test}
-```
+\`\`\`
 
 ## Questions?
 If you have additional questions, you can reach me through GitHub or by e-mail:

@@ -3,7 +3,7 @@ const generate = require('./assets/generateMarkdown');
 const questions = require('./assets/questions');
 const fs = require('fs');
 
-//Creates README file
+//Generates README.md from information generated from GitHub API/Inquirer prompts
 function writeToFile(fileName, data) {
   console.log('Writing file now');
   fs.writeFileSync(`./${fileName}.md`, data);
