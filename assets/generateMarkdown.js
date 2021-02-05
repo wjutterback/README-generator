@@ -1,5 +1,4 @@
 const template = require('./template');
-const fs = require('fs');
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const xhr = new XMLHttpRequest();
 
@@ -30,20 +29,14 @@ function renderLicenseSection(data) {
     });
   }
 }
-//Awaits response from GitHub API and runs writeToFile with information gathered.
+//Awaits response from GitHub API and creates template from information passed from inquirer and github api.
 async function generateMarkdown(data) {
   const license = await renderLicenseSection(data);
   const badge = license.spdx_id.replace('-', '%20').replace('-', '--');
   const licenseBody = license.body;
   const link = license.html_url;
-  const tempData = template(licenseBody, data, badge, link);
-
-  writeToFile(data.filename, tempData);
+  return template(licenseBody, data, badge, link);
 }
 //Generates README.md from information generated from GitHub API/Inquirer prompts
-function writeToFile(fileName, data) {
-  console.log('Writing file now');
-  fs.writeFileSync(`./${fileName}.md`, data);
-}
 
 module.exports = generateMarkdown;
