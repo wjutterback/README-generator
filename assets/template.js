@@ -4,7 +4,7 @@ const buildTemplate = (license, data, badge, link) => `
 
 ## Description
 
-${data.description}
+> ${data.description}
 
 ## Table of Contents
 
@@ -18,7 +18,9 @@ ${data.description}
 
 ## Installation
 
+```
 ${data.install}
+```
 
 ## Usage Information
 
@@ -34,11 +36,14 @@ ${data.contribute}
 
 ## Tests
 
+```
 ${data.test}
+```
 
 ## Questions?
-If you have additional questions, you can reach me through GitHub:
-[Github Profile](https://github.com/${data.GitHub}) or by e-mail: ${data.email}
+If you have additional questions, you can reach me through GitHub or by e-mail:
+* [Github](https://github.com/${data.GitHub})
+* ${data.email}
 
 ## License
 
