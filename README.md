@@ -22,7 +22,9 @@ Clone the repo, and run index.js through node.
 
 ## Usage Information
 
-Follow each prompt to completion
+Follow each prompt to completion or watch this video:
+
+## https://youtu.be/zX0F-szXp9g
 
 ## Issues
 
