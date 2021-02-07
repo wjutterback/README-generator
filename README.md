@@ -42,7 +42,7 @@ If you have additional questions, you can reach me through GitHub:
 
 BSD 3-Clause License
 
-Copyright (c) [2021], [Will Utterback]
+Copyright (c) 2021, Will Utterback
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
