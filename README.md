@@ -22,7 +22,9 @@ Clone the repo, and run index.js through node.
 
 ## Usage Information
 
-Follow each prompt to completion
+Follow each prompt to completion or watch this video:
+
+## https://youtu.be/zX0F-szXp9g
 
 ## Issues
 
@@ -40,7 +42,7 @@ If you have additional questions, you can reach me through GitHub:
 
 BSD 3-Clause License
 
-Copyright (c) [2021], [Will Utterback]
+Copyright (c) 2021, Will Utterback
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
