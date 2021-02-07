@@ -5,7 +5,7 @@ const fs = require('fs');
 
 //Generates README.md from information generated from GitHub API/Inquirer prompts
 function writeToFile(fileName, data) {
-  console.log('Writing file now');
+  console.log(`--- Creating ${fileName}.md now ---`);
   fs.writeFileSync(`./${fileName}.md`, data);
 }
 
